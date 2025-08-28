@@ -1,4 +1,4 @@
-Git fundamentals and creating your first pull request.
+Git fundamentals
 
 ---
 
