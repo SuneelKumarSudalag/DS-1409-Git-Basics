@@ -1,0 +1,194 @@
+Git fundamentals and creating your first pull request.
+
+---
+
+## What is Git?
+
+Git is a distributed version control system that helps you:
+- **Track changes** in your code over time
+- **Collaborate** with other developers
+- **Manage different versions** of your project
+- **Revert** to previous versions when needed
+- **Create branches** for experimenting with new features
+
+**GitHub** 
+GitHub is a web-based platform that hosts Git repositories and provides additional collaboration features.
+
+---
+
+
+
+### Initial Configuration
+
+Set up your identity (required for commits):
+
+```bash
+# Set your name and email
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+
+# Check your configuration
+git config --list
+```
+
+
+
+## Git Basics
+
+### Understanding the Three Areas
+
+Git has three main areas where your files can exist:
+
+1. **Working Directory** - Your project folder where you edit files
+2. **Staging Area** - Preparation area for your next commit
+3. **Repository** - Where Git stores your project history
+
+
+
+### Initialize a Repository
+
+```bash
+# Create a new directory and navigate into it
+mkdir my-project
+cd my-project
+
+# Initialize Git repository
+git init
+```
+
+### Check Repository Status
+
+```bash
+# See what's happening in your repo
+git status
+```
+
+### Add Files to Staging
+
+```bash
+# Add specific file
+git add filename.txt
+
+# Add all files in current directory
+git add .
+
+# Add all changes (including deletions)
+git add --all
+```
+
+### Commit Changes
+
+```bash
+# Commit with a message
+git commit -m "Add initial project files"
+
+# Commit all tracked changes (skips staging)
+git commit -am "Update existing files"
+```
+
+### View Commit History
+
+```bash
+# See commit history
+git log
+
+# See compact history
+git log --oneline
+
+# See graphical representation
+git log --graph --oneline
+```
+
+---
+
+## Working with Remote Repositories
+
+### Connect to GitHub Repository
+
+1. **Create repository on GitHub** (via web interface)
+
+2. **Add remote origin:**
+```bash
+# Connect your local repo to GitHub
+git remote add origin git@github.com:username/repository-name.git
+
+```
+
+3. **Verify remote:**
+```bash
+git remote -v
+```
+
+### Push to Remote Repository
+
+```bash
+# Push to remote for the first time
+git push -u origin main
+
+# Subsequent pushes
+git push
+```
+
+### Clone an Existing Repository
+
+```bash
+# Clone a repository
+git clone git@github.com:username/repository-name.git
+
+# Clone into specific directory
+git clone git@github.com:username/repository-name.git my-folder
+```
+
+### Pull Changes from Remote
+
+```bash
+# Fetch and merge changes
+git pull
+
+# Fetch changes without merging
+git fetch
+```
+
+---
+
+## Branching & Merging
+
+### Why Use Branches?
+
+Branches allow you to:
+- Work on features without affecting main code
+- Experiment safely
+- Collaborate without conflicts
+- Maintain a clean project history
+
+### Branch Commands
+
+```bash
+# See all branches
+git branch
+
+# Create new branch
+git branch feature-name
+
+# Create and switch to new branch
+git checkout -b feature-name
+
+# Switch to existing branch
+git checkout branch-name
+
+# Delete branch
+git branch -d feature-name
+```
+
+### Merging Branches
+
+```bash
+# Switch to target branch (usually main)
+git checkout main
+
+# Merge feature branch
+git merge feature-name
+
+# Delete merged branch
+git branch -d feature-name
+```
